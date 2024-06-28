@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -33,9 +34,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         // es1();
         // es2();
-        // es3();
+        es3();
         // es4();
-        es5();
+        // es5();
     }
 
     public static void es1(){
@@ -76,9 +77,16 @@ public class App {
         }
         System.out.println("questa è la mia lista iniziale di interi (casuali): " + values + "\n---------------------------------------------------");
 
-        values.stream()
-        .filter(v -> v % 2 != 0)
-        .forEach(System.out::println);
+        Optional<Integer> newValue = values.stream()
+        .filter(v -> v % 2 == 0)
+        .findFirst();
+
+        if(newValue.isPresent()){
+            int singleValue = newValue.get();
+            System.out.println("il primo numero pari trovato è: " + singleValue);
+        }else{
+            System.out.println("non è presente nessun numero pari");
+        }
     }
 
     public static void es4(){

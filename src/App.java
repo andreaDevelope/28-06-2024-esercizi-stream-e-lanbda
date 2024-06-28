@@ -34,7 +34,8 @@ public class App {
         // es1();
         // es2();
         // es3();
-        es4();
+        // es4();
+        es5();
     }
 
     public static void es1(){
@@ -97,4 +98,18 @@ public class App {
         System.out.println("La somma di tutti i valori è: " + sum);
     }
 
+    public static void es5(){
+        List<String> valuesStrings = new ArrayList<>();
+        valuesStrings.add("Marco");
+        valuesStrings.add("Andrea");
+        valuesStrings.add("Giulia");
+        valuesStrings.add("Sara");
+        System.out.println("questa è la mia ista iniziale di nomi: " + valuesStrings + "\n--------------------------------------------------");
+
+        List<String> newValuesStrings = valuesStrings.stream()
+        .sorted((s1, s2) -> s2.compareTo(s1))
+        .collect(Collectors.toList());
+
+        System.out.println("questa è la lista di nomi in ordine alfabetico inverso: " + newValuesStrings);
+    }
 }

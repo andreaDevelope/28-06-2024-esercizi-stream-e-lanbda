@@ -33,9 +33,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         // es1();
         // es2();
-        es3();
-
-
+        // es3();
+        es4();
     }
 
     public static void es1(){
@@ -65,7 +64,6 @@ public class App {
         .collect(Collectors.toList());
 
         System.out.println("questa è la lista iniziale di numeri interi (casuali) elevati alla seconda: \" + values" + newValuesToTheSecond);
-        
     }
 
     public static void es3(){
@@ -80,6 +78,23 @@ public class App {
         values.stream()
         .filter(v -> v % 2 != 0)
         .forEach(System.out::println);
-
     }
+
+    public static void es4(){
+        List<Double> values = new ArrayList<>();
+        Random rnd = new Random();
+        for(int i = 0; i < 10; i++){
+            Double value = rnd.nextDouble(101.0);
+            values.add(value);
+        }
+        System.out.println("questa è la lista iniziale di numeri decimali: " + values + "\n-----------------------------------------------------");
+    
+        
+
+        Double sum = values.stream()
+        .reduce(0.0, Double::sum);
+        
+        System.out.println("La somma di tutti i valori è: " + sum);
+    }
+
 }

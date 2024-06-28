@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
 public class App {
 
     /**
@@ -26,6 +31,40 @@ public class App {
      * ordinata.
      */
     public static void main(String[] args) throws Exception {
+        // es1();
+        es2();
+
+    }
+
+    public static void es1(){
+        List<String> valueStrings = new ArrayList<>();
+        valueStrings.add("qwerty");
+        valueStrings.add("ancora");
+        valueStrings.add("parole a caso");
+        valueStrings.add("anche questa stringa bellissima");
+        System.out.println("la tua lista iniziale contiene: " + valueStrings.size() + " stringhe\n ----------------------------------------------");
+        valueStrings.stream()
+        .filter(v -> v.startsWith("a"))
+        .forEach(System.out::println);
+    }
+
+    public static void es2(){
+        List<Integer> values = new ArrayList<>();
+        Random rnd = new Random();
+
+        for(int i = 0; i < 10; i++){
+            int value = rnd.nextInt(51);
+            values.add(value);
+        }
+        System.out.println("questa è la lista iniziale di numeri interi (casuali): " + values + "\n---------------------------------------------------");
+
+       List<Integer> newValuesToTheSecond = values.stream()
+        .map(v -> v * v)
+        .collect(Collectors.toList());
+
+        System.out.println("questa è la lista iniziale di numeri interi (casuali) elevati alla seconda: \" + values" + newValuesToTheSecond);
+        
+        
 
     }
 }

@@ -32,7 +32,9 @@ public class App {
      */
     public static void main(String[] args) throws Exception {
         // es1();
-        es2();
+        // es2();
+        es3();
+
 
     }
 
@@ -64,7 +66,20 @@ public class App {
 
         System.out.println("questa è la lista iniziale di numeri interi (casuali) elevati alla seconda: \" + values" + newValuesToTheSecond);
         
-        
+    }
+
+    public static void es3(){
+        List<Integer> values = new ArrayList<>();
+        Random rnd = new Random();
+        for(int i = 0; i < 3; i++){
+            int value = rnd.nextInt(101);
+            values.add(value);
+        }
+        System.out.println("questa è la mia lista iniziale di interi (casuali): " + values + "\n---------------------------------------------------");
+
+        values.stream()
+        .filter(v -> v % 2 != 0)
+        .forEach(System.out::println);
 
     }
 }

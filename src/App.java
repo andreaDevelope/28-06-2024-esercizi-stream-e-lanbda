@@ -32,9 +32,9 @@ public class App {
      * ordinata.
      */
     public static void main(String[] args) throws Exception {
-        // es1();
+        es1();
         // es2();
-        es3();
+        // es3();
         // es4();
         // es5();
     }
@@ -45,9 +45,9 @@ public class App {
         valueStrings.add("ancora");
         valueStrings.add("parole a caso");
         valueStrings.add("anche questa stringa bellissima");
-        System.out.println("la tua lista iniziale contiene: " + valueStrings.size() + " stringhe\n ----------------------------------------------");
+        System.out.println("questa è tua lista iniziale: " + valueStrings + " \n ----------------------------------------------");
         valueStrings.stream()
-        .filter(v -> v.startsWith("a"))
+        .filter(v -> v.toLowerCase().startsWith("a"))
         .forEach(System.out::println);
     }
 
